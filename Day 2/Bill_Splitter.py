@@ -7,4 +7,6 @@ bill_tip = bill * (1 + tip/100)
 
 pay = round(bill_tip/people, 2)
 
+pay = "{:.2f}".format(pay)
+
 print(f"Everyone should pay ${pay}")
