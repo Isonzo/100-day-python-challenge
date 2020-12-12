@@ -8,12 +8,9 @@ b = input("b: ")
 
 #Switch a and b variables
 
-c = a
-d = b
-
-a = d
+c = a 
+a = b
 b = c
-
 
 #Don't change code below!
 
