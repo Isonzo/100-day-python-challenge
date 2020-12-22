@@ -22,14 +22,13 @@ e2 = name.count("e")
 
 true = str(t + r + u + e)
 love = str(l + o + v + e2)
-print(true)
-print(love)
+
 
 true_love = int(true + love)
 
 
 
-if true_love <= 10 or true_love >= 90:
+if true_love < 10 or true_love > 90:
     print(f"Your love score is {true_love}, you go together like coke and mentos.")
 elif 40 < true_love < 50:
     print(f"Your love score is {true_love}, you are alright together")
