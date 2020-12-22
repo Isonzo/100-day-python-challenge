@@ -89,6 +89,8 @@ def blackjack():
             player_hand[ace] = 1
         elif sum(player_hand) > 21:
             print("Bust! You went over 21.")
+            print(f"Dealer's cards: {computer_hand}, score = {sum(computer_hand)}")
+            print(f"Your cards: {player_hand}, score = {sum(player_hand)}\n")
 
             input()
             clear()
