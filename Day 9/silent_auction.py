@@ -38,7 +38,7 @@ while not end_of_auction:
 
     if decision == "no":
         end_of_auction = True
+        clear()
+        check_highest_bidder(auction_record)
 
     clear()
-
-check_highest_bidder(auction_record)
