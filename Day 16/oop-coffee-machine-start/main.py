@@ -28,7 +28,7 @@ while is_on:
         quit()
 
     elif menu.find_drink(prompt) != None:
-        pass
+        pass    
         if menu.is_resource_sufficient(prompt):
             order.name = prompt
             payment = input_coins()
