@@ -39,7 +39,7 @@ def damien_hirst(width, height):
         damien.setposition(-300, vertical)
 
 
-damien_hirst(10, 10)
+damien_hirst(5, 5)
 
 
 screen.exitonclick()
