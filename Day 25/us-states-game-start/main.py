@@ -23,7 +23,7 @@ while len(state_manager.guess_list) < 50:
                                 "What's another State's name?"
                                 )
 
-    state_guess = state_guess.capitalize()
+    state_guess = state_guess.title()
 
     if state_guess == "Exit":
         break
