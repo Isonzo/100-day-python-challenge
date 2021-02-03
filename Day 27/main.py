@@ -83,4 +83,3 @@ for item in fruits:
 listbox.bind("<<ListboxSelect>>", listbox_used)
 listbox.pack()
 window.mainloop()
-
