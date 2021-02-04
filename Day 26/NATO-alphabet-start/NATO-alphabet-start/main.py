@@ -27,8 +27,14 @@ code_data = pandas.read_csv("nato_phonetic_alphabet.csv")
 
 code = {row.letter:row.code for (index, row) in code_data.iterrows()}
 
-word = input("Enter a word\n").upper()
-
-result = [code[letter] for letter in word]
-
-print(result)
+def nato_input():
+    word = input("Enter a word\n").upper()
+    try:
+        result = [code[letter] for letter in word]
+    except KeyError:
+        print("Sorry, only letters of the english alphabet")
+        nato_input()
+    else:
+        print(result)
+        nato_input()
+nato_input()
