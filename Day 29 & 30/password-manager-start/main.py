@@ -34,9 +34,10 @@ def generate_password():
     password.insert(0, gen_password)
     pc.copy(gen_password)
 
+
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 def save():
-    web = website.get()
+    web = website.get().lower()
     email = name.get()
     passw = password.get()
 
@@ -53,17 +54,39 @@ def save():
         try:
             with open("data.json", "r") as data_file:
                 data = json.load(data_file)
-                data.update(new_data)
         except FileNotFoundError:
             with open("data.json", "w") as data_file:
-                json.dump(data_file, "data.json")
+                json.dump(new_data, data_file, indent=4)
         else:
+            data.update(new_data)
 
             with open("data.json", "w") as data_file:
                 json.dump(new_data, data_file, indent=4)
-
+        finally:
             website.delete(0, tk.END)
             password.delete(0, tk.END)
+
+
+# ---------------------------- FIND PASSWORD ------------------------------- #
+def search():
+    search_target = website.get().lower()
+    try:
+        with open("data.json") as data_file:
+            data = json.load(data_file)
+    except FileNotFoundError:
+        messagebox.showwarning("Error", "You haven't saved any passwords yet")
+    else:
+        if search_target in data:
+            search_name = data[search_target]["email"]
+            search_pass = data[search_target]["password"]
+            messagebox.showinfo(search_target.capitalize(), f"Email/Username: {search_name}\nPassword: {search_pass}\nPassword has been copied to your clipboard")
+            pc.copy(search_pass)
+        else:
+            messagebox.showwarning("Error", "Website has no details yet")
+    finally:
+        website.delete(0, tk.END)
+
+
 
 # ---------------------------- UI SETUP ------------------------------- #
 window = tk.Tk()
@@ -87,8 +110,8 @@ pass_label.grid(row=3, column=0)
 
 # Entries
 
-website = tk.Entry(width=35)
-website.grid(row=1, column=1, columnspan=2, sticky="W")
+website = tk.Entry(width=21)
+website.grid(row=1, column=1, sticky="W")
 website.focus()
 
 name = tk.Entry(width=35)
@@ -99,6 +122,8 @@ password = tk.Entry(width=21)
 password.grid(row=3, column=1, sticky="W")
 
 # Buttons
+button_pass = tk.Button(text="Search", command=search, width=14)
+button_pass.grid(row=1, column=2)
 
 button_pass = tk.Button(text="Generate Password", command=generate_password)
 button_pass.grid(row=3, column=2)
