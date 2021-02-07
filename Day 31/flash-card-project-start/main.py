@@ -11,8 +11,8 @@ try:
     raw_data = pd.read_csv("data/to_learn.csv")
 except FileNotFoundError:
     raw_data = pd.read_csv("data/french_words.csv")
-
-data = raw_data.to_dict(orient="records")
+finally:
+    data = raw_data.to_dict(orient="records")
 
 
 # NEW RANDOM CARD
