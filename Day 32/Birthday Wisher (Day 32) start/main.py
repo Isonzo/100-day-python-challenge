@@ -4,6 +4,7 @@ import random
 
 my_email = "isonzo@gmail.com"
 password = "no"
+recipient = "anotheremail@gmail.com"
 
 now = dt.datetime.now()
 
@@ -19,6 +20,6 @@ with smtplib.SMTP("smtp.gmail.com") as connection:
     if today == 1:
         connection.sendmail(
             from_addr=my_email,
-            to_addrs="renato.soverina@gmail.com",
+            to_addrs=recipient,
             msg=f"Subject:Tuesday Sent!\n\n{random.choice(quotes)}"
             )
