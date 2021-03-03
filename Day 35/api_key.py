@@ -2,14 +2,14 @@ import requests
 from twilio.rest import Client
 
 account_sid = "AC09a601afbe9fe78bc4179879334f42e1"
-auth_token = "twilio auth token"
+auth_token = ""
 client = Client(account_sid, auth_token)
 
 
 parameters = {
     "lat": -0,
     "lon": 52.408989,
-    "appid": "your app id (from openweathermap)",
+    "appid": "your app id (from openweather)",
     "exclude": "current,minutely,daily"
     }
 
