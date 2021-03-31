@@ -9,7 +9,7 @@ NEWS_KEY = os.getenv("NEWS_KEY")
 
 STOCK = "INTC"
 COMPANY_NAME = "Intel"
-get_news = False
+get_news = True
 
 ## STEP 1: Use https://www.alphavantage.co
 # When STOCK price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
